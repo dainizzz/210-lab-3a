@@ -6,10 +6,10 @@ using namespace std;
 
 struct Restaurant {
 	string name;
-  	string address;
-    string cusineType;
-    bool hasVegetarianOptions;
-    double rating;
+	string address;
+	string cuisineType;
+	double rating;
+	bool hasVegetarianOptions;
 };
 
 // populateRestaurant() gets user input via console and uses it to populate the Restaurant struct's data
@@ -23,5 +23,24 @@ Restaurant populateRestaurant();
 void outputRestaurant(const Restaurant restaurant);
 
 int main() {
-    return 0;
+	Restaurant myRestaurant = populateRestaurant();
+	cout << myRestaurant.name << endl;
+	return 0;
+}
+
+Restaurant populateRestaurant() {
+	Restaurant temp;
+
+	cout << "Please enter the restaurant's name:" << endl;
+	getline(cin, temp.name);
+	cout << "Please enter the restaurant's address:" << endl;
+	getline(cin, temp.address);
+	cout << "Please enter the type of cuisine:" << endl;
+	getline(cin, temp.cuisineType);
+	cout << "Please enter the restaurant's rating:" << endl;
+	cin >> temp.rating;
+	cout << "Please enter if the restaurant has vegetarian options: 1 for yes, 0 for no:" << endl;
+	cin >> temp.hasVegetarianOptions;
+
+	return temp;
 }
