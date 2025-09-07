@@ -51,10 +51,13 @@ Restaurant populateRestaurant() {
 	getline(cin, temp.address);
 	cout << "Please enter the type of cuisine:" << endl;
 	getline(cin, temp.cuisineType);
+	// TODO: Add data validation for these two inputs
 	cout << "Please enter the restaurant's rating:" << endl;
 	cin >> temp.rating;
 	cout << "Please enter if the restaurant has vegetarian options: 1 for yes, 0 for no:" << endl;
 	cin >> temp.hasVegetarianOptions;
+	// Placing cin.ignore() here to clear the stream before the next time the function gets used
+	cin.ignore();
 
 	return temp;
 }
