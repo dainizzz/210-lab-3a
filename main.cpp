@@ -1,6 +1,7 @@
 // COMSC-210 | Lab 3a | Dainiz Almazan
 // IDE used: CLion
 
+#include <iomanip>
 #include <iostream>
 #include <limits>
 using namespace std;
@@ -56,14 +57,14 @@ Restaurant populateRestaurant() {
 	while (!(cin >> temp.rating)) {
 		cout << "Invalid input. Please enter a number rating:" << endl;
 		cin.clear();
-		//clearing the number of characters inputted by the user
+		// Clearing the number of characters inputted by the user
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 	cout << "Please enter if the restaurant has vegetarian options: 1 for yes, 0 for no:" << endl;
 	while (!(cin >> temp.hasVegetarianOptions)) {
 		cout << "Invalid input. Please enter 1 for yes or 0 for no:" << endl;
 		cin.clear();
-		//clearing the number of characters inputted by the user
+		// Clearing the number of characters inputted by the user
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 	// Placing cin.ignore() here to clear the stream before the next time the function gets used
@@ -77,6 +78,11 @@ void outputRestaurant(const Restaurant &restaurant) {
 	cout << "Address: " << restaurant.address << endl;
 	cout << "Cuisine: " << restaurant.cuisineType << endl;
 	// Formatting this way for consistency in how ratings are displayed
-	cout << "Rating: " << showpoint << restaurant.rating << endl;
-	cout << "Vegetarian options: " << boolalpha << restaurant.hasVegetarianOptions << endl;
+	cout << "Rating: " << setprecision(2) << showpoint << restaurant.rating << endl;
+	// Using this instead of boolalpha to display Yes/No instead of true/false
+	cout << "Vegetarian options: ";
+	if (restaurant.hasVegetarianOptions)
+		cout << "Yes" << endl;
+	else
+		cout << "No" << endl;
 }
