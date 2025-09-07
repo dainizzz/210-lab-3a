@@ -2,9 +2,16 @@
 // IDE used: CLion
 
 #include <iostream>
-
 using namespace std;
 
-int main(){
-  return 0;
+struct Restaurant {
+	string name;
+  	string address;
+    string cusineType;
+    bool hasVegetarianOptions;
+    double rating;
+};
+
+int main() {
+    return 0;
 }
