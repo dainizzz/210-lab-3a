@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+const int ARRAY_SIZE = 4;
+
 struct Restaurant {
 	string name;
 	string address;
@@ -23,8 +25,19 @@ Restaurant populateRestaurant();
 void outputRestaurant(const Restaurant &restaurant);
 
 int main() {
-	Restaurant myRestaurant = populateRestaurant();
-	outputRestaurant(myRestaurant);
+	Restaurant restaurants[ARRAY_SIZE];
+
+	cout << "Getting restaurant data..." << endl;
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cout << "RESTAURANT #" << i + 1 << endl;
+		restaurants[i] = populateRestaurant();
+	}
+
+	cout << "Displaying restaurant data..." << endl;
+	for (int i = 0; i < ARRAY_SIZE; i++) {
+		cout << "RESTAURANT #" << i + 1 << endl;
+		outputRestaurant(restaurants[i]);
+	}
 
 	return 0;
 }
