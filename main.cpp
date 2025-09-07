@@ -66,10 +66,6 @@ void outputRestaurant(const Restaurant &restaurant) {
 	cout << "Name: " << restaurant.name << endl;
 	cout << "Address: " << restaurant.address << endl;
 	cout << "Cuisine: " << restaurant.cuisineType << endl;
-	cout << "Rating: " << restaurant.rating << endl;
-	cout << "Vegetarian options: ";
-	if (restaurant.hasVegetarianOptions)
-		cout << "Yes" << endl;
-	else
-		cout << "No" << endl;
+	cout << "Rating: " << showpoint << restaurant.rating << endl;
+	cout << "Vegetarian options: " << boolalpha << restaurant.hasVegetarianOptions << endl;
 }
