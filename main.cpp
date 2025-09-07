@@ -20,11 +20,12 @@ Restaurant populateRestaurant();
 // outputRestaurant() displays the data from each of the members in the Restaurant struct in the console
 // arguments: a Restaurant struct
 // returns: nothing
-void outputRestaurant(const Restaurant restaurant);
+void outputRestaurant(const Restaurant &restaurant);
 
 int main() {
 	Restaurant myRestaurant = populateRestaurant();
-	cout << myRestaurant.name << endl;
+	outputRestaurant(myRestaurant);
+
 	return 0;
 }
 
@@ -43,4 +44,16 @@ Restaurant populateRestaurant() {
 	cin >> temp.hasVegetarianOptions;
 
 	return temp;
+}
+
+void outputRestaurant(const Restaurant &restaurant) {
+	cout << "Name: " << restaurant.name << endl;
+	cout << "Address: " << restaurant.address << endl;
+	cout << "Cuisine: " << restaurant.cuisineType << endl;
+	cout << "Rating: " << restaurant.rating << endl;
+	cout << "Vegetarian options: ";
+	if (restaurant.hasVegetarianOptions)
+		cout << "Yes" << endl;
+	else
+		cout << "No" << endl;
 }
